@@ -136,7 +136,7 @@ QIcon FilePath::trayIconUnlocked()
 QIcon FilePath::icon(const QString& category, const QString& name, bool fromTheme)
 {
     QString combinedName = category + "/" + name;
-
+    fromTheme = false;
     QIcon icon = m_iconCache.value(combinedName);
 
     if (!icon.isNull()) {

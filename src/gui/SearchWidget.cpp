@@ -76,7 +76,7 @@ SearchWidget::SearchWidget(QWidget* parent)
     m_ui->helpIcon->setIcon(filePath()->icon("actions", "system-help"));
     m_ui->searchEdit->addAction(m_ui->helpIcon, QLineEdit::TrailingPosition);
 
-    m_ui->clearIcon->setIcon(filePath()->icon("actions", "edit-clear-locationbar-rtl"));
+    m_ui->clearIcon->setIcon(filePath()->icon("actions", "edit-clear-rtl"));
     m_ui->clearIcon->setVisible(false);
     m_ui->searchEdit->addAction(m_ui->clearIcon, QLineEdit::TrailingPosition);
 

@@ -32,7 +32,7 @@ LineEdit::LineEdit(QWidget* parent)
 
     QIcon icon;
     QString iconNameDirected =
-        QString("edit-clear-locationbar-").append((layoutDirection() == Qt::LeftToRight) ? "rtl" : "ltr");
+        QString("edit-clear-").append((layoutDirection() == Qt::LeftToRight) ? "rtl" : "ltr");
     icon = QIcon::fromTheme(iconNameDirected);
     if (icon.isNull()) {
         icon = QIcon::fromTheme("edit-clear");
