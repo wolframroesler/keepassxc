@@ -180,7 +180,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>32</height>
     </rect>
    </property>
    <property name="contextMenuPolicy">
@@ -250,7 +250,7 @@
       <bool>false</bool>
      </property>
      <property name="title">
-      <string>TOTP...</string>
+      <string>&amp;TOTP...</string>
      </property>
      <addaction name="actionEntryCopyTotp"/>
      <addaction name="actionEntryTotp"/>
@@ -303,8 +303,8 @@
    </property>
    <property name="iconSize">
     <size>
-     <width>22</width>
-     <height>22</height>
+     <width>32</width>
+     <height>32</height>
     </size>
    </property>
    <attribute name="toolBarArea">
@@ -518,7 +518,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Password Generator</string>
+    <string>&amp;Password Generator</string>
    </property>
   </action>
   <action name="actionEntryAutoType">
@@ -534,7 +534,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Open &amp;URL</string>
+    <string>&amp;Open URL</string>
    </property>
   </action>
   <action name="actionLockDatabases">
@@ -588,7 +588,7 @@
   </action>
   <action name="actionImportKeePass1">
    <property name="text">
-    <string>KeePass 1 database...</string>
+    <string>&amp;KeePass 1 database...</string>
    </property>
    <property name="toolTip">
     <string>Import a KeePass 1 database</string>
@@ -596,7 +596,7 @@
   </action>
   <action name="actionImportCsv">
    <property name="text">
-    <string>CSV file...</string>
+    <string>&amp;CSV file...</string>
    </property>
    <property name="toolTip">
     <string>Import a CSV file</string>
@@ -604,17 +604,17 @@
   </action>
   <action name="actionEntryTotp">
    <property name="text">
-    <string>Show TOTP...</string>
+    <string>&amp;Show TOTP...</string>
    </property>
   </action>
   <action name="actionEntryTotpQRCode">
    <property name="text">
-    <string>Show TOTP QR Code...</string>
+    <string>Show TOTP &amp;QR Code...</string>
    </property>
   </action>
   <action name="actionEntrySetupTotp">
    <property name="text">
-    <string>Set up TOTP...</string>
+    <string>Set &amp;up TOTP...</string>
    </property>
   </action>
   <action name="actionEntryCopyTotp">

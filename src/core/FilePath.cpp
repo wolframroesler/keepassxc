@@ -143,6 +143,7 @@ QIcon FilePath::icon(const QString& category, const QString& name, bool fromThem
         return icon;
     }
 
+    fromTheme = false;
     if (fromTheme) {
         icon = QIcon::fromTheme(name);
     }
@@ -150,13 +151,13 @@ QIcon FilePath::icon(const QString& category, const QString& name, bool fromThem
     if (icon.isNull()) {
         const QList<int> pngSizes = {16, 22, 24, 32, 48, 64, 128};
         QString filename;
-        for (int size : pngSizes) {
-            filename =
-                QString("%1/icons/application/%2x%2/%3.png").arg(m_dataPath, QString::number(size), combinedName);
-            if (QFile::exists(filename)) {
-                icon.addFile(filename, QSize(size, size));
-            }
-        }
+//        for (int size : pngSizes) {
+//            filename =
+//                QString("%1/icons/application/%2x%2/%3.png").arg(m_dataPath, QString::number(size), combinedName);
+//            if (QFile::exists(filename)) {
+//                icon.addFile(filename, QSize(size, size));
+//            }
+//        }
         filename = QString("%1/icons/application/scalable/%2.svg").arg(m_dataPath, combinedName);
         if (QFile::exists(filename)) {
             icon.addFile(filename);
@@ -213,6 +214,7 @@ QIcon FilePath::onOffIcon(const QString& category, const QString& name)
 
 FilePath::FilePath()
 {
+
     const QString appDirPath = QCoreApplication::applicationDirPath();
     bool isDataDirAbsolute = QDir::isAbsolutePath(KEEPASSX_DATA_DIR);
     Q_UNUSED(isDataDirAbsolute);
@@ -246,6 +248,11 @@ FilePath::FilePath()
     } else {
         m_dataPath = QDir::cleanPath(m_dataPath);
     }
+
+    QStringList searchPaths = QIcon::themeSearchPaths();
+    searchPaths.append(QString("%1/icons").arg(m_dataPath));
+    QIcon::setThemeSearchPaths(searchPaths);
+//    QIcon::setThemeName("KeePassXC");
 }
 
 bool FilePath::testSetDir(const QString& dir)

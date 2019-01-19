@@ -1,0 +1,11 @@
+[Icon Theme]
+Name=KeePassXC
+Directories=scalable/actions
+Inherits=breeze,gnome,hicolor,default
+
+[scalable/actions]
+Size=22
+Type=Scalable
+MinSize=1
+MaxSize=256
+Context=Actions
