@@ -28,6 +28,7 @@ class DatabaseIcons
 public:
     QImage icon(int index);
     QPixmap iconPixmap(int index);
+    QPixmap iconScaledPixmap(int index);
 
     static DatabaseIcons* instance();
 
@@ -44,6 +45,7 @@ private:
     static const char* const m_indexToName[];
     QVector<QImage> m_iconCache;
     QVector<QPixmapCache::Key> m_pixmapCacheKeys;
+    QVector<QPixmapCache::Key> m_pixmapScaledCacheKeys;
 
     Q_DISABLE_COPY(DatabaseIcons)
 };

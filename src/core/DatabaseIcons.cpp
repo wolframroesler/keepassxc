@@ -134,6 +134,24 @@ QPixmap DatabaseIcons::iconPixmap(int index)
     return pixmap;
 }
 
+QPixmap DatabaseIcons::iconScaledPixmap(int index)
+{
+    if (index < 0 || index >= IconCount) {
+        qWarning("DatabaseIcons::iconPixmap: invalid icon index %d", index);
+        return QPixmap();
+    }
+
+    QPixmap pixmap;
+
+    if (!QPixmapCache::find(m_pixmapScaledCacheKeys[index], &pixmap)) {
+        QImage image = icon(index).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        pixmap = QPixmap::fromImage(image);
+        m_pixmapScaledCacheKeys[index] = QPixmapCache::insert(pixmap);
+    }
+
+    return pixmap;
+}
+
 DatabaseIcons::DatabaseIcons()
 {
     Q_STATIC_ASSERT(sizeof(m_indexToName) == IconCount * sizeof(m_indexToName[0]));
@@ -142,6 +160,8 @@ DatabaseIcons::DatabaseIcons()
     m_iconCache.resize(IconCount);
     m_pixmapCacheKeys.reserve(IconCount);
     m_pixmapCacheKeys.resize(IconCount);
+    m_pixmapScaledCacheKeys.reserve(IconCount);
+    m_pixmapScaledCacheKeys.resize(IconCount);
 }
 
 DatabaseIcons* DatabaseIcons::instance()
